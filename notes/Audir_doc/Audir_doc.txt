@@ -1,0 +1,10 @@
+_audir_sfx_maintainer		ds_map
+key:	sfx_id / sfx_name
+value: struct:	{
+	//ALL THE STANDARD VALUES
+	
+	plus these:
+
+	last_played_time :		current_time	// Set this value to current_time each time sfx is played
+	last_played_sounds :	ds_list();				// ds_list with sound ids / names
+}
