@@ -4,20 +4,24 @@
 /// @arg			sound_array			An array of sound files that is accociated with the sfx
 /// @arg			critical					A boolean representing if the soun should always play even if budget is max
 function audir_create_sfx(_sfx_name, _sound_array, _critical = false){
-	o_audir._audir_sfx_maintainer[? _sfx_name] = { // SFX struct with data
-		sound_array : _sound_array,
-		critical			: _critical,
-		max_count	: AUDIR_DEFAULT_MAX_COUNT,
-		priority			: AUDIR_DEFAULT_PRIORITY,
-		sound_cost	: AUDIR_DEFAULT_SOUND_COST,
-		min_delta		: AUDIR_DEFAULT_MIN_DELTA,
-		max_noise	: AUDIR_DEFAULT_MAX_NOISE,
-		last_played	: ds_list_create(),
-		last_time		: 0
+	if not ds_map_exists(o_audir._audir_sfx_maintainer, _sfx_name){ // Check if name is not in use
+		o_audir._audir_sfx_maintainer[? _sfx_name] = { // SFX struct with data
+			sound_array				:		_sound_array,
+			critical							:		_critical,
+			max_count					:		AUDIR_DEFAULT_MAX_COUNT,
+			priority							:		AUDIR_DEFAULT_PRIORITY,
+			sound_cost					:		AUDIR_DEFAULT_SOUND_COST,
+			min_delta					:		AUDIR_DEFAULT_MIN_DELTA,
+			max_noise					:		AUDIR_DEFAULT_MAX_NOISE,
+			last_played_id			:		ds_list_create(),
+			last_played_name	:		ds_list_create(),
+			last_time						:		0
+		}
+		return 1;
+	} else { 
+		return -1; // SFX name already in use
 	}
-	return 1;
 }
-
 
 /// @func		audir_create_sfx_ext( sound_array, critical, max_count, priority, sound_cost, min_delta, max_noise)
 /// @arg			sfx_name				Name of the SFX.
@@ -31,15 +35,16 @@ function audir_create_sfx(_sfx_name, _sound_array, _critical = false){
 function audir_create_sfx_ext(_sfx_name, _sound_array, _critical = false, _max_count = AUDIR_DEFAULT_MAX_COUNT, _priority = AUDIR_DEFAULT_PRIORITY, _sound_cost = AUDIR_DEFAULT_SOUND_COST, _min_delta = AUDIR_DEFAULT_MIN_DELTA,  _max_noise = AUDIR_DEFAULT_MAX_NOISE){
 	if not ds_map_exists(o_audir._audir_sfx_maintainer, _sfx_name){ // Check if name is not in use
 		o_audir._audir_sfx_maintainer[? _sfx_name] = { // SFX struct with data
-			sound_array : _sound_array,
-			critical			: _critical,
-			max_count	: _max_count,
-			priority			: _priority,
-			sound_cost	: _sound_cost,
-			min_delta		: _min_delta,
-			max_noise	: _max_noise,
-			last_played	: ds_list_create(),
-			last_time		: 0
+			sound_array				:	_sound_array,
+			critical							:	_critical,
+			max_count					:	_max_count,
+			priority							:	_priority,
+			sound_cost					:	_sound_cost,
+			min_delta					:	_min_delta,
+			max_noise					:	 _max_noise,
+			last_played_id			:	ds_list_create(),
+			last_played_name	:	ds_list_create(),
+			last_time						:	0
 		}
 		return 1;
 	} else { 
@@ -49,18 +54,19 @@ function audir_create_sfx_ext(_sfx_name, _sound_array, _critical = false, _max_c
 
 
 /// @func	audir_get_sfx_active(sfx_id)
-///@arg		sfx_id		The id of the sfx, typically a string or number.
+///@arg		sfx_name		The id of the sfx, typically a string or number.
 /// @desc	Returns the number of currently playing instances of a sound.
-function audir_get_sfx_active(_sfx_id){
+function audir_sfx_is_playing(_sfx_id){
 	var _sfx = o_audir._audir_sfx_maintainer[? _sfx_id];
-	var _last_played_len = ds_list_size(_sfx.last_played);
+	var _last_played_len = ds_list_size(_sfx.last_played_id);
 	var return_val = 0, _i = 0;
-	while (_i < _last_played_len && audio_is_playing(_sfx.last_played[| _i])){
+	while (_i < _last_played_len && audio_is_playing(_sfx.last_played_id[| _last_played_len - _i])){
 		return_val += 1;
 		_i += 1;
 	}
 	return return_val;
 }
+
 
 
 /// @func audir_create_music_track(music_track_name, stem_array, music_mood_struct)
@@ -72,6 +78,7 @@ function audir_create_music_track(_music_track_name, _stem_array, _music_mood_st
 		battle:				[1.0, 1.0, 1.0] })
 */
 	return -1	
+	// TODO
 }
 
 
@@ -158,3 +165,4 @@ function audir_set_sfx_gain(_gain) {
 function audir_set_ambiance_gain(_gain) {
 	o_audir._audir_ambiance_gain = _gain;	
 }
+
