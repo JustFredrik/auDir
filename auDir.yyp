@@ -1,10 +1,14 @@
 {
   "resources": [
     {"id":{"name":"AuDir_core","path":"scripts/AuDir_core/AuDir_core.yy",},"order":2,},
+    {"id":{"name":"snd_confirm4","path":"sounds/snd_confirm4/snd_confirm4.yy",},"order":8,},
     {"id":{"name":"snd_confirm","path":"sounds/snd_confirm/snd_confirm.yy",},"order":4,},
+    {"id":{"name":"snd_confirm1","path":"sounds/snd_confirm1/snd_confirm1.yy",},"order":5,},
+    {"id":{"name":"snd_confirm2","path":"sounds/snd_confirm2/snd_confirm2.yy",},"order":6,},
     {"id":{"name":"Audir_doc","path":"notes/Audir_doc/Audir_doc.yy",},"order":3,},
     {"id":{"name":"AUDIR_CONFIG","path":"scripts/AUDIR_CONFIG/AUDIR_CONFIG.yy",},"order":1,},
     {"id":{"name":"o_audir","path":"objects/o_audir/o_audir.yy",},"order":0,},
+    {"id":{"name":"snd_confirm3","path":"sounds/snd_confirm3/snd_confirm3.yy",},"order":7,},
     {"id":{"name":"o_controller","path":"objects/o_controller/o_controller.yy",},"order":1,},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},"order":0,},
   ],
@@ -36,7 +40,7 @@
   ],
   "IncludedFiles": [],
   "MetaData": {
-    "IDEVersion": "2022.3.0.625",
+    "IDEVersion": "2022.6.0.23",
   },
   "resourceVersion": "1.5",
   "name": "auDir",

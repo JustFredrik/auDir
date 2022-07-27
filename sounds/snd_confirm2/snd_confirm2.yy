@@ -11,14 +11,14 @@
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
   },
-  "soundFile": "snd_confirm.wav",
-  "duration": 0.558562,
+  "soundFile": "snd_confirm2.wav",
+  "duration": 2.181837,
   "parent": {
     "name": "AuDir - Audio Manager Library",
     "path": "folders/AuDir - Audio Manager Library.yy",
   },
   "resourceVersion": "1.0",
-  "name": "snd_confirm",
+  "name": "snd_confirm2",
   "tags": [],
   "resourceType": "GMSound",
 }
