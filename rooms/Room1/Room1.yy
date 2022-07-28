@@ -28,8 +28,8 @@
   "sequenceId": null,
   "roomSettings": {
     "inheritRoomSettings": false,
-    "Width": 1366,
-    "Height": 768,
+    "Width": 300,
+    "Height": 500,
     "persistent": false,
   },
   "viewSettings": {
@@ -46,8 +46,8 @@
     "PhysicsWorldPixToMetres": 0.1,
   },
   "parent": {
-    "name": "Rooms",
-    "path": "folders/Rooms.yy",
+    "name": "Extra",
+    "path": "folders/Extra.yy",
   },
   "resourceVersion": "1.0",
   "name": "Room1",

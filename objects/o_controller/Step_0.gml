@@ -1,3 +1,5 @@
-if keyboard_check_pressed(vk_space){
-	id_str = string(audir_init());	
+
+if (keyboard_check(vk_space)){
+	//audio_play_sound(snd_confirm, 2, false);
+	audir_play_sfx("confirm", o_controller);
 }
