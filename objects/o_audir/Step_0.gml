@@ -1,12 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-if (keyboard_check_pressed(vk_space)){
-	last_played = ""
-	audir_play_sfx("confirm", o_controller);
-}
-
-
 // Cull sounds when Noise is too High
 var _node, _tmp_node;
 while(_audir_current_noise_level > AUDIR_MAX_NOISE_LEVEL){

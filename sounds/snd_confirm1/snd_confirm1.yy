@@ -8,14 +8,14 @@
   "type": 0,
   "bitDepth": 1,
   "audioGroupId": {
-    "name": "audiogroup_default",
-    "path": "audiogroups/audiogroup_default",
+    "name": "audiogroup1",
+    "path": "audiogroups/audiogroup1",
   },
   "soundFile": "snd_confirm1.wav",
   "duration": 3.178231,
   "parent": {
-    "name": "AuDir - Audio Manager Library",
-    "path": "folders/AuDir - Audio Manager Library.yy",
+    "name": "Extra",
+    "path": "folders/Extra.yy",
   },
   "resourceVersion": "1.0",
   "name": "snd_confirm1",

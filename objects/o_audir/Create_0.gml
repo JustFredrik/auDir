@@ -30,7 +30,12 @@ _audir_sfx_maintainer		= ds_map_create();	// Map of all developer defined sound 
 
 _audir_current_noise_level = 0;
 #endregion
-
+#region Audio Group Manager
+if (AUDIR_USE_AUDIO_GROUP_MANAGER){
+	_audir_audio_group_info = ds_map_create();
+	
+}
+#endregion
 #region Methods
 
 /// @func	_audir_clean_up_emitters()
