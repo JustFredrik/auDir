@@ -13,6 +13,7 @@
 .8'       `8. `88888.   '8`Y88888P'    8 888888888P'       8 8888   8 8888    `88888. 
 
 					Audio Management Library for GameMaker
+								Version 0.2
 
 				Author:		Fredrik "JustFredrik" Svanholm
 				Twitter:	http://www.twitter.com/jstfredrik
@@ -202,7 +203,6 @@ function audir_stop_sfx_group(_group_name){
 function audir_pause_sfx_group(_group_name){
 	// TODO
 	return -1
-
 }
 
 
@@ -347,45 +347,60 @@ function audir_get_active_sfx_count(){
 #endregion
 //-------------------------------------
 #region Audio Group Manager
+
+/// @func						audir_define_audio_group_sounds(audiogroup_data)
+/// @arg	audiogroup_data		Big struct with all the data
 function audir_define_audio_group_sounds(_audiogroup_data){
 	// TODO
 	return -1
 }
 
 
+/// @func				audir_sound_get_audio:group(sound_id)
+/// @arg	sound_id	Sound id for sound to check
 function audir_sound_get_audio_group(_sound_id){
 	// TODO
 	return -1	
 }
 
 
+/// @func					audir_audio_group_load(audio_group)
+/// @arg	audio_group_id	ID of audio group to load
 function audir_audio_group_load(_audio_group_id){
 	// TODO
 	return -1	
 }
 
 
+/// @func					audir_audio_group_deload(audio_group_id)
+/// @arg	audio_group_id	ID of audio group to deload
 function audir_audio_group_deload(_audio_group_id){
 	// TODO
 	return -1
 }
 
 
+/// @func					audir_audio_group_set_persistent(audio_group_id, bool)
+/// @arg	audio_group_id	id of audio group to set as persistent
+/// @arg	bool			True or False flag to change the status
 function audir_audio_group_set_persistent(_audio_group_id, _bool){
 	// TODO
 	return -1
 }
 
 
-
 #endregion
-#region Internal : Helper functions
+#region Internal / Helper functions
 
+/// @func			__audir_show_warning_message(string)
+/// @arg	string	string to show in the message
 function __audir_show_warning_message(_warning_string){
 	show_debug_message("[ AuDir ] WARNING : " + _warning_string);	
 }
 
 
+/// @func				__audir_get_queue_node(sound_id)
+/// @arg	sound_id	Retrieves the node that holds the given sound_id
 function __audir_get_queue_node(_sound_id){
 	if ds_map_exists(o_audir._audir_sound_queue.map, _sound_id){
 		return o_audir._audir_sound_queue.map[? _sound_id];	
@@ -395,6 +410,11 @@ function __audir_get_queue_node(_sound_id){
 }
 
 
+/// @func				__audir_add_sfx_to_queue(sound_id, sound_name, sfx_name, priority, noise)
+/// @arg	sound_id	Sound id of the sound resource
+/// @arg	sound_name	name of the sound resource
+/// @arg	sfx_name	priority
+/// @arg	noise		Noise value for the sfx
 function __audir_add_sfx_to_queue(_sound_id, _sound_name, _sfx_name, _priority, _noise){
 	var _queue	= o_audir._audir_sound_queue;
 	var _snd_data = {
@@ -452,6 +472,8 @@ function __audir_add_sfx_to_queue(_sound_id, _sound_name, _sfx_name, _priority, 
 }
 
 
+/// @func				__audir_remove_sfx_from_queue(node)
+/// @arg	node		Node to remove from SFX queue
 function __audir_remove_sfx_from_queue(_node){
 	if (!ds_map_exists(o_audir._audir_sound_queue.map, _node.sound_id)){ show_debug_message("BURN BABy BurN"); return -1 }
 	if (audio_is_playing(_node.sound_id)){
@@ -495,9 +517,9 @@ function __audir_remove_sfx_from_queue(_node){
 
 #endregion
 //-------------------------------------
-#region Macros
-#macro AUDIR_VERSION	"0.1"
-#macro AUDIR_DATE		"2022-07-27"
+#region Info Macros
+#macro AUDIR_VERSION	"0.2"
+#macro AUDIR_DATE		"2022-07-31"
 #endregion
 
 show_debug_message("[ AuDir ] You are currently using AuDir Version:  " + string(AUDIR_VERSION) + "  ("+ string(AUDIR_DATE) + ")")
