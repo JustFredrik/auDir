@@ -1,0 +1,18 @@
+{
+  "FolderOrderSettings": [
+    {"name":"AuDir - Audio Manager Library","order":1,"path":"folders/AuDir - Audio Manager Library.yy",},
+    {"name":"Extra","order":2,"path":"folders/Extra.yy",},
+  ],
+  "ResourceOrderSettings": [
+    {"name":"snd_huge","order":7,"path":"sounds/snd_huge/snd_huge.yy",},
+    {"name":"AuDir_core","order":2,"path":"scripts/AuDir_core/AuDir_core.yy",},
+    {"name":"snd_confirm4","order":6,"path":"sounds/snd_confirm4/snd_confirm4.yy",},
+    {"name":"snd_confirm","order":2,"path":"sounds/snd_confirm/snd_confirm.yy",},
+    {"name":"snd_confirm1","order":3,"path":"sounds/snd_confirm1/snd_confirm1.yy",},
+    {"name":"snd_confirm2","order":4,"path":"sounds/snd_confirm2/snd_confirm2.yy",},
+    {"name":"Audir_doc","order":3,"path":"notes/Audir_doc/Audir_doc.yy",},
+    {"name":"AUDIR_CONFIG","order":1,"path":"scripts/AUDIR_CONFIG/AUDIR_CONFIG.yy",},
+    {"name":"snd_confirm3","order":5,"path":"sounds/snd_confirm3/snd_confirm3.yy",},
+    {"name":"Room1","order":1,"path":"rooms/Room1/Room1.yy",},
+  ],
+}
